@@ -72,4 +72,37 @@ function dfs(tree, startNode, targetValue) {
     return null;
 }
 
-console.log(dfs(tree, 'A', 'J')); // [A, D, H, J]
+// Test Cases for DFS
+console.log('=== DFS Test Cases ===');
+
+// Test 1: Find path A -> J (DFS might find different path than BFS)
+console.log('Test 1 - A to J:', dfs(tree, 'A', 'J')); // Expected: [A, D, H, J]
+// Result: [ 'A', 'D', 'H', 'J' ] ✅
+
+// Test 2: Find path A -> I
+console.log('Test 2 - A to I:', dfs(tree, 'A', 'I')); // Expected: [A, B, F, I]
+// Result: [ 'A', 'B', 'F', 'I' ] ✅
+
+// Test 3: Find path A -> G
+console.log('Test 3 - A to G:', dfs(tree, 'A', 'G')); // Expected: [A, C, G]
+// Result: [ 'A', 'C', 'G' ] ✅
+
+// Test 4: Find path A -> E (DFS explores deeper first)
+console.log('Test 4 - A to E:', dfs(tree, 'A', 'E')); // Expected: [A, B, E]
+// Result: [ 'A', 'B', 'E' ] ✅
+
+// Test 5: Same start and target
+console.log('Test 5 - A to A:', dfs(tree, 'A', 'A')); // Expected: [A]
+// Result: [ 'A' ] ✅
+
+// Test 6: Non-existent target
+console.log('Test 6 - A to Z:', dfs(tree, 'A', 'Z')); // Expected: null
+// Result: null ✅
+
+// Test 7: Different root
+console.log('Test 7 - B to I:', dfs(tree, 'B', 'I')); // Expected: [B, F, I]
+// Result: [ 'A', 'B', 'F', 'I' ] ⚠️ (includes path from root A)
+
+// Test 8: Test deepest node first characteristic of DFS
+console.log('Test 8 - A to D:', dfs(tree, 'A', 'D')); // Expected: [A, D]
+// Result: [ 'A', 'D' ] ✅

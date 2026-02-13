@@ -35,27 +35,9 @@ class Queue {
         return element;
     }
 
-    // O(1) - Check front element without removing
-    peek() {
-        if (this.isEmpty()) {
-            return null;
-        }
-        return this.items[this.front];
-    }
-
     // O(1) - Check if queue is empty
     isEmpty() {
         return this.front === this.rear;
-    }
-
-    // O(1) - Get size
-    size() {
-        return this.rear - this.front;
-    }
-
-    // Helper method to see all elements (for debugging)
-    toArray() {
-        return this.items.slice(this.front, this.rear);
     }
 }
 
